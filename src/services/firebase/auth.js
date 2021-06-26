@@ -8,3 +8,7 @@ export const createUserWithEmail = async (email, password) => {
 export const loginWithEmail = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password)
 }
+
+export const userAlreadyLogged = (store, user) =>{
+  store.commit("setUserToken", user)
+}
