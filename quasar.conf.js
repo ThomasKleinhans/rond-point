@@ -9,6 +9,7 @@
 /* eslint-env node */
 const ESLintPlugin = require('eslint-webpack-plugin')
 const { configure } = require('quasar/wrappers');
+const enviromentConfiguration = require('./src/utils/environmentConfig.js')
 
 module.exports = configure(function (ctx) {
   return {
@@ -45,6 +46,9 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+      env: {
+        QENV: enviromentConfiguration(process.env.QENV)
+      },
       vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // transpile: false,
