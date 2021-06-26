@@ -5,7 +5,9 @@ export default boot(async ({app, router, store, Vue}) => {
   firebaseServices.fBInit(process.env.QENV.FIREBASE_CONFIG)
 
   firebaseServices.auth().onAuthStateChanged((user) => {
-    firebaseServices.userAlreadyLogged(store, user)
+    if(user){
+      store.commit("setUserToken", user)
+    }
   }, (error) => {
     console.error(error)
   })

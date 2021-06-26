@@ -4,8 +4,8 @@ const state = {
 };
 
 const getters = {
-  getUserStatus: (state) => state.isAuthenticated,
-  getUserToken: (state) => state.userToken
+  getAuthStatus: (state) => state.isAuthenticated,
+  getUserUID: (state) => state.uid
 };
 
 const actions = {
@@ -23,7 +23,7 @@ const actions = {
   },
   async logoutUser({commit}){
     const $fb = this.$fb
-    $fb.logoutUser()
+    $fb.logOut()
     .then((response) => {
         commit('destroyUser')
         console.log(response)
@@ -41,7 +41,7 @@ const mutations = {
   },
   destroyUser(state) {
     state.isAuthenticated = false
-    state.uid = null
+    state.uid = ""
   },  
 };
 
