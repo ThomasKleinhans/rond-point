@@ -23,6 +23,8 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli/boot-files
     boot: [
+      "firebase",
+      "init"
     ],
 
     // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -49,8 +51,7 @@ module.exports = configure(function (ctx) {
       env: {
         QENV: enviromentConfiguration(process.env.QENV)
       },
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
-
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       // transpile: false,
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
@@ -79,7 +80,7 @@ module.exports = configure(function (ctx) {
     devServer: {
       https: false,
       port: 8080,
-      open: true // opens browser window automatically
+      open: true,
     },
 
     // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
@@ -97,7 +98,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: ['Loading', 'Notify']
     },
 
     // animations: 'all', // --- includes all animations
