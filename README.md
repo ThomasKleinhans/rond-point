@@ -7,9 +7,14 @@ A Quasar Framework app
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Start the app in development mode for Windows devices (hot-code reloading, error reporting, etc.)
 ```bash
-quasar dev
+npm run dev:win
+```
+
+### Start the app in development mode for Apple devices (hot-code reloading, error reporting, etc.)
+```bash
+npm run dev:mac
 ```
 
 ### Lint the files
