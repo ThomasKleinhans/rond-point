@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-footer reveal bordered class="bg-white text-primary">
-      <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
+      <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey">
         <q-tab name="images" label="Images" />
         <q-tab name="videos" label="Videos" />
         <q-tab name="articles" label="Articles" />

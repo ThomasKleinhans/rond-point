@@ -21,6 +21,17 @@ const actions = {
         console.error(error)
     })
   },
+  async registerUser({commit}, data) {
+    const $fb = this.$fb
+    const {name, email, password} = data
+
+    $fb.registerUser(email, password)
+    .then(() => $fb.addUserData(name, email)
+    .then(() => console.log("User successfully added")))
+    .catch((error) => {
+      console.log(error)
+    })
+  },  
   async logoutUser({commit}){
     const $fb = this.$fb
     $fb.logOut()

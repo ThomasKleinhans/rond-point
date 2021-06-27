@@ -9,6 +9,10 @@ export const loginWithEmail = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password)
 }
 
+export const registerUser = (email, password) => {
+  return firebase.auth().createUserWithEmailAndPassword(email, password)
+}
+
 export const logOut = () => {
   return firebase.auth().signOut()
 }

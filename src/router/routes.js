@@ -1,18 +1,29 @@
 
 const routes = [
   {
+    name: "auth",
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/AuthLayout.vue'),
     children: [
-      { name: "home", path: '', component: () => import('pages/Index.vue') },
-      { name: "login", path: '/login', component: () => import('pages/Auth.vue') },
-      { name: "private", path : '/private', component: () => import('pages/Private.vue'), meta: { requiresAuth: true }}
-    ]
+      { path: '', component: () => import('src/pages/Auth.page.vue') },
+      { name: "login", path: '/login', component: () => import('src/pages/Login.page.vue') },
+      { name: "register", path: '/register', component: () => import('src/pages/Register.page.vue') },
+    ],
+  },
+  {
+    name: "app",
+    path: "/app",
+    component: () =>('layouts/MainLayout.vue'),
+    children: [
+      { name: "private", path : 'private', component: () => import('src/pages/Private.page.vue')}
+    ],
+    meta: { requiresAuth: true }
+
   },
 
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue')
+    component: () => import('src/pages/Error404.page.vue')
   }
 ]
 

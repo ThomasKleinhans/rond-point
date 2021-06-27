@@ -33,7 +33,7 @@ export default route(function ({ store }) {
         next();
         return;
       }
-      next("/login");
+      next("/");
     } else {
       next();
     }
