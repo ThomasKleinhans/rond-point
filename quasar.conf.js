@@ -148,7 +148,7 @@ module.exports = configure(function (ctx) {
         description: `A Quasar Framework app`,
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
+        background_color: '#121212',
         theme_color: '#027be3',
         icons: [
           {
