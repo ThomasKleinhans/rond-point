@@ -29,13 +29,13 @@ jobs:
 
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         env: # Or as an environment variable
-          DEV_API_KEY: ${{ secrets.DEV_API_KEY }}
-          DEV_AUTH_DOMAIN: ${{ secrets.DEV_AUTH_DOMAIN }}
-          DEV_PROJECT_ID: ${{ secrets.DEV_PROJECT_ID }}
-          DEV_STORAGE_BUCKET: ${{ secrets.DEV_STORAGE_BUCKET }}
-          DEV_MESSAGING_SENDER_ID: ${{ secrets.DEV_MESSAGING_SENDER_ID }}
-          DEV_APP_ID: ${{ secrets.DEV_APP_ID }}
-          DEV_MEASUREMENT_ID: ${{ secrets.DEV_MEASUREMENT_ID }}
+          DEV_API_KEY: ${{ dev.DEV_API_KEY }}
+          DEV_AUTH_DOMAIN: ${{ dev.DEV_AUTH_DOMAIN }}
+          DEV_PROJECT_ID: ${{ dev.DEV_PROJECT_ID }}
+          DEV_STORAGE_BUCKET: ${{ dev.DEV_STORAGE_BUCKET }}
+          DEV_MESSAGING_SENDER_ID: ${{ dev.DEV_MESSAGING_SENDER_ID }}
+          DEV_APP_ID: ${{ dev.DEV_APP_ID }}
+          DEV_MEASUREMENT_ID: ${{ dev.DEV_MEASUREMENT_ID }}
         run: |
           npm run build
 
