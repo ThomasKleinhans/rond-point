@@ -6,3 +6,7 @@
 /node_modules
 .eslintrc.js
 babel.config.js
+/src/store/store-flag.d.ts
+/src/css
+/src/assets
+/src/index.template.html
