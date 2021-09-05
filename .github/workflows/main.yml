@@ -28,8 +28,6 @@ jobs:
           npm run lint
 
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        run: |
-          quasar build
         env: # Or as an environment variable
           DEV_API_KEY: ${{ secrets.DEV_API_KEY }}
           DEV_AUTH_DOMAIN: ${{ secrets.DEV_AUTH_DOMAIN }}
@@ -38,6 +36,8 @@ jobs:
           DEV_MESSAGING_SENDER_ID: ${{ secrets.DEV_MESSAGING_SENDER_ID }}
           DEV_APP_ID: ${{ secrets.DEV_APP_ID }}
           DEV_MEASUREMENT_ID: ${{ secrets.DEV_MEASUREMENT_ID }}
+        run: |
+          npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
