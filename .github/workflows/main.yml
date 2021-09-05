@@ -27,11 +27,16 @@ jobs:
         run: |
           npm run lint
 
-      - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: Create env file
         env: # Or as an environment variable
-          DEV_ENV_FILE: ${{ secrets.DEV_ENV }}
+          DEV_ENV: ${{ secrets.DEV_ENV }}
         run: |
-          echo $DEV_ENV_FILE | base64 --decode > .env
+          touch .env
+          echo $DEV_ENV >> .env
+          cat .env
+
+      - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
           npm run build
 
       - name: Deploy 🚀
