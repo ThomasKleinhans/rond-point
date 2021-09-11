@@ -44,9 +44,7 @@ const actions = {
 
     const { email } = data
     
-    this.$fb.resetPassword(email).then((link) => {
-      console.log(link)
-    })
+    this.$fb.resetPassword(email)
   }
 }
 
