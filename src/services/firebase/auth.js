@@ -16,3 +16,8 @@ export const registerUser = (email, password) => {
 export const logOut = () => {
   return firebase.auth().signOut()
 }
+
+export const resetPassword = (email) => {
+  return firebase.auth().sendPasswordResetEmail(
+    email); 
+}

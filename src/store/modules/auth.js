@@ -1,3 +1,5 @@
+import { resetPassword } from "src/services/firebase/auth";
+
 const state = {
   isAuthenticated: false,
   uid: null,
@@ -41,6 +43,15 @@ const actions = {
     })
     .catch((error) => {
         console.log(error)
+    })
+  },
+  async resetPassword({commit}, data){
+    const $fb = this.$fb
+
+    const { email } = data
+    
+    $fb.resetPassword(email).then((link) => {
+      console.log(link)
     })
   }
 }
