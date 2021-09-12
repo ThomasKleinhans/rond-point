@@ -10,10 +10,9 @@ const getters = {
 
 const actions = {
   async loginUser({commit}, data){
-    const $fb = this.$fb
     const { email, password } = data
     
-    $fb.loginWithEmail(email, password)
+    this.$fb.loginWithEmail(email, password)
     .then((response) => {
         commit('setUserToken', response)
     })
@@ -22,10 +21,9 @@ const actions = {
     })
   },
   async registerUser({commit}, data) {
-    const $fb = this.$fb
     const {name, email, password} = data
 
-    $fb.registerUser(email, password)
+    this.$fb.registerUser(email, password)
     .then(() => $fb.addUserData(name, email)
     .then(() => console.log("User successfully added")))
     .catch((error) => {
@@ -33,8 +31,7 @@ const actions = {
     })
   },  
   async logoutUser({commit}){
-    const $fb = this.$fb
-    $fb.logOut()
+    this.$fb.logOut()
     .then((response) => {
         commit('destroyUser')
         console.log(response)
@@ -42,6 +39,12 @@ const actions = {
     .catch((error) => {
         console.log(error)
     })
+  },
+  async resetPassword({commit}, data){
+
+    const { email } = data
+    
+    this.$fb.resetPassword(email)
   }
 }
 
