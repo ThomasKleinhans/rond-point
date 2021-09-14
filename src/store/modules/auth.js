@@ -1,6 +1,7 @@
 const state = {
   isAuthenticated: false,
-  uid: null,
+  uid: "",
+  isReady: false
 };
 
 const getters = {
@@ -14,8 +15,9 @@ const actions = {
     const { email, password } = data
     
     $fb.loginWithEmail(email, password)
-    .then((response) => {
-        commit('setUserToken', response)
+    .then((user) => {
+        commit('setAuthState', user !== null)  
+        commit('setUserToken', user)
     })
     .catch((error) => {
         console.error(error)
@@ -35,9 +37,8 @@ const actions = {
   async logoutUser({commit}){
     const $fb = this.$fb
     $fb.logOut()
-    .then((response) => {
+    .then(() => {
         commit('destroyUser')
-        console.log(response)
     })
     .catch((error) => {
         console.log(error)
@@ -46,14 +47,18 @@ const actions = {
 }
 
 const mutations = {
+  setAuthState (state, value) {
+    state.isAuthenticated = value
+    state.isReady = value
+  },
   setUserToken(state, user) {
-    state.isAuthenticated = true
     state.uid = user.uid
   },
   destroyUser(state) {
     state.isAuthenticated = false
+    state.isReady = false
     state.uid = ""
-  },  
+  },
 };
 
 export default {
