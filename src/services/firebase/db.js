@@ -12,6 +12,6 @@ export const addUserData = async (uid, name, email) => {
 
 export const setUserAvailibility = async (uid, availability) => {
     return firebase.firestore().collection("users").doc(uid).update({
-        availability
+        availability: availability
     })
 }
