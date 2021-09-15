@@ -4,7 +4,6 @@
   "description": "A Quasar Framework app",
   "productName": "Quasar App",
   "author": "ThomasKleinhans <kleinhans.thomas@gmail.com>",
-  "homepage": "https://thomaskleinhans.github.io/rond-point/",
   "private": true,
   "scripts": {
     "dev": "QENV=DEV quasar dev",
