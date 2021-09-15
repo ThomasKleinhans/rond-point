@@ -24,7 +24,7 @@ const actions = {
     const {name, email, password} = data
 
     this.$fb.registerUser(email, password)
-    .then(() => $fb.addUserData(name, email)
+    .then((response) => this.$fb.addUserData(response.user.uid, name, email)
     .then(() => console.log("User successfully added")))
     .catch((error) => {
       console.log(error)
