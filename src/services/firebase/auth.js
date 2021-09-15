@@ -41,3 +41,8 @@ export const ensureAuthIsInitialized = async (store) => {
     })
   })
 }
+
+export const resetPassword = (email) => {
+  return firebase.auth().sendPasswordResetEmail(
+    email); 
+}
