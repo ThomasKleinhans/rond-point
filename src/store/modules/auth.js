@@ -13,7 +13,7 @@ const actions = {
   async loginUser({commit}, data){
     const { email, password } = data
     
-    $fb.loginWithEmail(email, password)
+    this.$fb.loginWithEmail(email, password)
     .then((user) => {
         commit('setAuthState', user !== null)  
         commit('setUserToken', user)
@@ -33,8 +33,7 @@ const actions = {
     })
   },  
   async logoutUser({commit}){
-    const $fb = this.$fb
-    $fb.logOut()
+    this.$fb.logOut()
     .then(() => {
         commit('destroyUser')
     })
