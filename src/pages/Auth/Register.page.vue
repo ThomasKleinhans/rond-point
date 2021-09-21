@@ -1,83 +1,102 @@
-<style scoped>
-.rounded {
-  border-radius: 15px;
-}
-.btn-submit {
-  font-size: 20px;
-}
-
-.main-connect {
+<style lang="scss" scoped>
+.main-register {
   align-content: space-around;
   max-width: 500px;
-}
+  padding: 24px;
 
-.btn-connect {
-  text-transform: unset;
-}
-.btn-connect:before {
-  box-shadow: unset;
-}
+  .rounded {
+    border-radius: 15px;
+  }
 
+  .underline-input {
+    position: relative;
+
+    &:before {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background: $primary;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      opacity: 100%;
+    }
+  }
+
+  .btn-submit {
+    font-size: 20px;
+  }
+
+  .btn-forget-pwd {
+    text-transform: unset;
+
+    &:before {
+      box-shadow: unset;
+    }
+  }
+}
 </style>
 
 <template>
-  <q-page class="main-connect padding window-height q-mx-auto row justify-center items-center q-pa-md">
-    <img src="../assets/images/logo.png" alt="" width="152">
-    <q-card class="row justify-center q-py-md q-px-md full-width rounded q-my-sm">
+  <q-page class="main-register padding window-height q-mx-auto row justify-center items-center q-pa-md">
+    <img src="../../assets/images/logo.png" alt="" width="152">
+    <q-card class="row justify-center q-px-lg q-py-xl full-width rounded q-my-sm">
       <q-form dark @submit="onSubmit" class="full-width q-px-md">
         <div class="row content-center">
-          <img src="../assets/images/icon-user.svg" alt="">
+          <img src="../../assets/images/icon-user.svg" alt="">
           <label class="text-uppercase text-bold q-pl-sm">Ton prénom</label>
         </div>
         <q-input
           v-model="auth.firstName"
-          :dense="dense"
+          borderless
           type="text"
-          class="q-mb-md"
+          class="underline-input q-mb-md"
           placeholder="Prénom"
         />
         <div class="row content-center">
-          <img src="../assets/images/icon-user.svg" alt="">
+          <img src="../../assets/images/icon-user.svg" alt="">
           <label class="text-uppercase text-bold q-pl-sm">Nom</label>
         </div>
         <q-input
           v-model="auth.lastName"
-          :dense="dense"
+          borderless
           type="text"
-          class="q-mb-md"
+          class="underline-input q-mb-md"
           placeholder="Nom"
         />
         <div class="row content-center">
-          <img src="../assets/images/icon-user.svg" alt="">
+          <img src="../../assets/images/icon-user.svg" alt="">
           <label class="text-uppercase text-bold q-pl-sm">Ton blaz</label>
         </div>
         <q-input
           v-model="auth.email"
-          :dense="dense"
+          borderless
           type="email"
-          class="q-mb-md"
+          class="underline-input q-mb-md"
           placeholder="Email"
         />
         <div class="row content-center">
-          <img src="../assets/images/icon-padlock.svg" alt="">
+          <img src="../../assets/images/icon-padlock.svg" alt="">
           <label class="text-uppercase text-bold q-pl-sm">Ton code secret</label>
         </div>
         <q-input
           v-model="auth.password"
-          :dense="dense"
+          borderless
           type="password"
-          class="q-mb-md"
+          class="underline-input q-mb-md"
           placeholder="Mot de passe"
-          />
+        />
         <div class="row content-center">
-          <img src="../assets/images/icon-padlock.svg" alt="">
+          <img src="../../assets/images/icon-padlock.svg" alt="">
           <label class="text-uppercase text-bold q-pl-sm">Confirme ton code secret</label>
         </div>
         <q-input
           v-model="auth.confirmPassword"
-          :dense="dense"
+          borderless
           type="password"
-          class="q-mb-md"
+          class="underline-input q-mb-md"
           placeholder="Mot de passe"
         />
       </q-form>
@@ -88,7 +107,7 @@
         label="Valider"
         type="submit"
         color="primary"/>
-      <q-btn :to="{ name:'login' }"  class="btn-connect text-center q-mt-md full-width ">Se connecter ?</q-btn>
+      <q-btn :to="{ name:'login' }" class="btn-connect text-center q-mt-md full-width ">Se connecter ?</q-btn>
     </div>
   </q-page>
 </template>
@@ -108,9 +127,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["registerUser"]),
+    ...mapActions( [ "registerUser" ] ),
     onSubmit() {
-      this.registerUser(this.auth);
+      this.registerUser( this.auth );
     },
   },
 };
