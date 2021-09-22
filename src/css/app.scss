@@ -68,3 +68,21 @@ body {
   font-family: "Lato", "-apple-system", Helvetica, Arial, sans-serif;
   color: $white;
 }
+
+.underline-input {
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: $primary;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    opacity: 100%;
+  }
+}
+

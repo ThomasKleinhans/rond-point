@@ -1,44 +1,3 @@
-<style lang="scss" scoped>
-.main-connect {
-  align-content: space-around;
-  max-width: 500px;
-  padding: 24px;
-
-  .rounded {
-    border-radius: 15px;
-  }
-
-  .underline-input {
-    position: relative;
-
-    &:before {
-      content: '';
-      height: 2px;
-      width: 100%;
-      background: $primary;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      opacity: 100%;
-    }
-  }
-
-  .btn-submit {
-    font-size: 20px;
-  }
-
-  .btn-forget-pwd {
-    text-transform: unset;
-
-    &:before {
-      box-shadow: unset;
-    }
-  }
-}
-</style>
-
 <template>
   <q-page class="main-connect window-height q-mx-auto row justify-center items-center">
     <img src="../../assets/images/logo.png" alt="" width="152">
@@ -102,3 +61,27 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.main-connect {
+  align-content: space-around;
+  max-width: 500px;
+  padding: 24px;
+
+  .rounded {
+    border-radius: 15px;
+  }
+
+  .btn-submit {
+    font-size: 20px;
+  }
+
+  .btn-forget-pwd {
+    text-transform: unset;
+
+    &:before {
+      box-shadow: unset;
+    }
+  }
+}
+</style>
