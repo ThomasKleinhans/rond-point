@@ -1,20 +1,26 @@
 <template>
-  <q-page padding>
-    <div class="q-pa-md" style="max-width: 400px">
-      <q-form @submit="onSubmit" class="q-gutter-md">
+  <q-page class="main-forgot-pwd window-height q-mx-auto row justify-center items-center">
+    <img src="../../assets/images/logo.png" alt="" width="152">
+    <q-form @submit="onSubmit" class="full-width">
+      <q-card class="justify-center q-px-lg q-py-xl full-width rounded">
+        <div class="row content-center">
+          <img src="../../assets/images/icon-user.svg" alt="">
+          <label class="text-uppercase text-bold q-pl-sm">Ton blaz</label>
+        </div>
         <q-input
           v-model="auth.email"
-          filled
+          borderless
+          class="underline-input"
           type="email"
           label="Email"
-          lazy-rules
         />
-
-        <div>
-          <q-btn class="q-ma-xs" label="Reinitialiser" type="submit" color="primary" />
-        </div>
-      </q-form>
-    </div>
+      </q-card>
+    </q-form>
+    <q-btn
+      class="q-ma-xs full-width q-py-md rounded btn-submit text-bold"
+      label="Reinitialiser"
+      type="submit"
+      color="primary"/>
   </q-page>
 </template>
 
@@ -30,10 +36,34 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["resetPassword"]),
+    ...mapActions( [ "resetPassword" ] ),
     onSubmit() {
-      this.resetPassword(this.auth);
+      this.resetPassword( this.auth );
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.main-forgot-pwd {
+  align-content: space-around;
+  max-width: 500px;
+  padding: 24px;
+
+  .rounded {
+    border-radius: 15px;
+  }
+
+  .btn-submit {
+    font-size: 20px;
+  }
+
+  .btn-forget-pwd {
+    text-transform: unset;
+
+    &:before {
+      box-shadow: unset;
+    }
+  }
+}
+</style>
