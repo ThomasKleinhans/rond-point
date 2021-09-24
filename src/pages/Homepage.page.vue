@@ -9,17 +9,14 @@
         @click="setActiveButton">
         Dispo
       </button>
-      <button class="not-available full-height w-50"
-              :class="{active: !getAvailability}"
-              @click="setActiveButton">
+      <button
+        class="not-available full-height w-50"
+        :class="{active: !getAvailability}"
+        @click="setActiveButton">
         Pas dispo
       </button>
-
-
     </div>
-
   </q-page>
-
 </template>
 
 <script>
@@ -34,9 +31,7 @@ export default {
     ] ),
 
     setActiveButton: function () {
-      this.getAvailability ?
-        this.setUserAvailibility( { uid: this.getUserUID, availability: false } ) :
-        this.setUserAvailibility( { uid: this.getUserUID, availability: true } );
+      this.setUserAvailibility( { uid: this.getUserUID, availability: !this.getAvailability } )
     }
   },
 
