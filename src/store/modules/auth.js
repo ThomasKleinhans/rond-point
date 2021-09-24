@@ -24,10 +24,10 @@ const actions = {
       } )
   },
   async registerUser( { commit }, data ) {
-    const { name, email, password } = data
+    const { firstName, lastName, email, password } = data
 
     this.$fb.registerUser( email, password )
-      .then( ( response ) => this.$fb.addUserData( response.user.uid, name, email )
+      .then( ( response ) => this.$fb.addUserData( response.user.uid, firstName, lastName, email )
         .then( () => console.log( "User successfully added" ) ) )
       .catch( ( error ) => {
         console.log( error )
