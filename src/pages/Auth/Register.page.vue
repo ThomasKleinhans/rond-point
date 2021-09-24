@@ -64,7 +64,7 @@
       <q-btn
         class="q-ma-xs full-width q-py-md rounded btn-submit text-bold"
         label="Valider"
-        type="submit"
+        @click="onSubmit"
         color="primary"/>
       <q-btn :to="{ name:'login' }" class="btn-connect text-center q-mt-md full-width ">Se connecter ?</q-btn>
     </div>
