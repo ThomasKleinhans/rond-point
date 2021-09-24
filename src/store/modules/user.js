@@ -13,7 +13,7 @@ const getters = {
 const actions = {
   async setUserAvailibility({commit}, data){
     const { uid, availability } = data
-    
+
     this.$fb.setUserAvailibility(uid, availability)
     .then(() => {
         commit('setAvailability', availability)
@@ -22,6 +22,7 @@ const actions = {
         console.error(error)
     })
   },
+
   async getAllOtherUsers({commit, getters}){
     const ownUID = getters.getUserUID
 
