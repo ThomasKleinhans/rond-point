@@ -17,17 +17,15 @@
       </button>
     </div>
     <q-card
-      class="user-card justify-center q-pa-md full-width rounded flex no-wrap justify-between items-center"
+      class="user-card justify-center q-pa-md full-width rounded flex no-wrap justify-between"
       v-for="user in getAllOtherUsers" :key="user">
       <img src="../assets/images/logo.png" alt="" class="avatar">
-      <div class="user-info">
-        <p class="user-name w-50">{{ user.name }}</p>
+      <div class="user-info flex items-center justify-center">
+        <p class="user-name w-50">{{ user.firstname +' '+ user.lastname}}</p>
       </div>
-      <div>
-        <button class="btn-notify">
-          Envoyer
-        </button>
-      </div>
+      <button class="btn-notify">
+        Envoyer
+      </button>
     </q-card>
   </q-page>
 </template>
@@ -66,12 +64,10 @@ export default {
 <style lang="scss" scoped>
 .main-home {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .avatar {
-    width: 70px;
-    height: 70px;
-    object-fit: scale-down;
-  }
 
   .rounded {
     border-radius: 15px;
@@ -79,6 +75,13 @@ export default {
 
   .user-card {
     background-color: $dark-800;
+    height: 100%;
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      object-fit: scale-down;
+    }
 
     .user-name {
       font-weight: bold;
@@ -86,9 +89,9 @@ export default {
     }
 
     .btn-notify {
-      width: 45px;
       background: $primary;
       border: unset;
+      color: $white;
       border-radius: 0 20px 20px 0;
     }
   }
