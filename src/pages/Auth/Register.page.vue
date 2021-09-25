@@ -2,7 +2,7 @@
   <q-page class="main-register padding window-height q-mx-auto row justify-center items-center q-pa-md">
     <img src="../../assets/images/logo.png" alt="" width="152">
     <q-card class="row justify-center q-px-lg q-py-xl full-width rounded q-my-sm">
-      <q-form @submit="onSubmit" class="full-width q-px-md">
+      <q-form class="full-width q-px-md">
         <div class="row content-center">
           <img src="../../assets/images/icon-user.svg" alt="">
           <label class="text-uppercase text-bold q-pl-sm">Ton prénom</label>
