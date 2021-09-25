@@ -15,11 +15,20 @@
         @click="setActiveButton">
         Pas dispo
       </button>
-
-      <q-card v-for="user in getAllOtherUsers" :key="user">
-        {{ user.name }}
-      </q-card>
     </div>
+    <q-card
+      class="user-card justify-center q-pa-md full-width rounded flex no-wrap justify-between items-center"
+      v-for="user in getAllOtherUsers" :key="user">
+      <img src="../assets/images/logo.png" alt="" class="avatar">
+      <div class="user-info">
+        <p class="user-name w-50">{{ user.name }}</p>
+      </div>
+      <div>
+        <button class="btn-notify">
+          Envoyer
+        </button>
+      </div>
+    </q-card>
   </q-page>
 </template>
 
@@ -57,6 +66,32 @@ export default {
 <style lang="scss" scoped>
 .main-home {
   padding: 24px;
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: scale-down;
+  }
+
+  .rounded {
+    border-radius: 15px;
+  }
+
+  .user-card {
+    background-color: $dark-800;
+
+    .user-name {
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    .btn-notify {
+      width: 45px;
+      background: $primary;
+      border: unset;
+      border-radius: 0 20px 20px 0;
+    }
+  }
 
   .container-switch {
     border-radius: 20px;
@@ -123,5 +158,6 @@ export default {
     }
 
   }
+
 }
 </style>
