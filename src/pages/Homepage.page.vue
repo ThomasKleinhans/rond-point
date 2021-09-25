@@ -15,6 +15,10 @@
         @click="setActiveButton">
         Pas dispo
       </button>
+
+      <q-card v-for="user in getAllOtherUsers" :key="user">
+        {{ user.name }}
+      </q-card>
     </div>
   </q-page>
 </template>
@@ -27,19 +31,25 @@ export default {
 
   methods: {
     ...mapActions( [
-      'setUserAvailibility'
+      'setUserAvailability',
+      'fetchAllOtherUsers'
     ] ),
 
     setActiveButton: function () {
-      this.setUserAvailibility( { uid: this.getUserUID, availability: !this.getAvailability } )
+      this.setUserAvailability( { uid: this.getUserUID, availability: !this.getAvailability } )
     }
   },
 
   computed: {
     ...mapGetters( [
       'getUserUID',
-      'getAvailability'
+      'getAvailability',
+      'getAllOtherUsers'
     ] )
+  },
+
+  mounted() {
+    this.fetchAllOtherUsers();
   }
 }
 </script>
