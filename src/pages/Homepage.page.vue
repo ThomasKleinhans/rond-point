@@ -1,32 +1,39 @@
 <template>
   <q-page class="main-home">
-    <img src="../assets/images/logo.png" alt="" width="152">
-    <p>Est-ce que vous êtes sur Zillis ?</p>
-    <div class="container-switch q-pa-sm flex full-width">
-      <button
-        class="available full-height w-50"
-        :class="{active: getAvailability}"
-        @click="setActiveButton">
-        Dispo
-      </button>
-      <button
-        class="not-available full-height w-50"
-        :class="{active: !getAvailability}"
-        @click="setActiveButton">
-        Pas dispo
-      </button>
-    </div>
-    <q-card
-      class="user-card justify-center q-pa-md full-width rounded flex no-wrap justify-between"
-      v-for="user in getAllOtherUsers" :key="user">
-      <img src="../assets/images/logo.png" alt="" class="avatar">
-      <div class="user-info flex items-center justify-center">
-        <p class="user-name w-50">{{ user.firstname +' '+ user.lastname}}</p>
+    <q-header class="header q-pa-lg flex column items-center">
+      <div class="full-width text-right">
+        <img src="../assets/images/profile.svg" alt="">
       </div>
-      <button class="btn-notify">
-        Envoyer
-      </button>
-    </q-card>
+      <img src="../assets/images/logo.png" alt="" width="152" class="q-pt-md q-pb-lg">
+      <p class="q-pt-sm">Est-ce que vous êtes sur Zillis ?</p>
+      <div class="container-switch q-pa-sm flex full-width">
+        <button
+          class="available full-height w-50"
+          :class="{active: getAvailability}"
+          @click="setActiveButton">
+          Dispo
+        </button>
+        <button
+          class="not-available full-height w-50"
+          :class="{active: !getAvailability}"
+          @click="setActiveButton">
+          Pas dispo
+        </button>
+      </div>
+    </q-header>
+    <div class="full-width">
+      <q-card
+        class="user-card justify-center full-width rounded flex no-wrap justify-between q-mb-lg"
+        v-for="user in getAllOtherUsers" :key="user">
+        <img src="../assets/images/avatar1.svg" alt="" class="avatar">
+        <div class="user-info flex items-center justify-center">
+          <p class="user-name full-width">{{ user.firstname + ' ' + user.lastname }}</p>
+        </div>
+        <button class="btn-notify">
+          <img src="../assets/images/paperplane.svg" alt="">
+        </button>
+      </q-card>
+    </div>
   </q-page>
 </template>
 
@@ -67,6 +74,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 500px;
+  margin: auto;
+
+  .header {
+    background: linear-gradient(0, rgba(18, 18, 18, 0) 0%, #121212 50%);
+    max-width: 500px;
+    margin: auto;
+  }
 
 
   .rounded {
@@ -76,23 +91,36 @@ export default {
   .user-card {
     background-color: $dark-800;
     height: 100%;
+    border-radius: 30px;
+    padding: 12px;
 
     .avatar {
       width: 70px;
       height: 70px;
       object-fit: scale-down;
+      border-radius: 20px;
     }
 
-    .user-name {
-      font-weight: bold;
-      margin-bottom: 0;
+    .user-info {
+
+      width: 45%;
+
+      .user-name {
+        font-weight: bold;
+        margin-bottom: 0;
+      }
     }
 
     .btn-notify {
       background: $primary;
       border: unset;
+      padding: 12px;
       color: $white;
       border-radius: 0 20px 20px 0;
+
+      img {
+        vertical-align: middle;
+      }
     }
   }
 
