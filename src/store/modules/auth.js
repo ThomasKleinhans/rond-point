@@ -17,7 +17,7 @@ const actions = {
       .then( ( user ) => {
         commit( 'setAuthState', user !== null )
         commit( 'setUserToken', user )
-        this.$router.push( { name: 'private' } )
+        this.$router.push( { name: 'homepage' } )
       } )
       .catch( ( error ) => {
         console.error( error )
