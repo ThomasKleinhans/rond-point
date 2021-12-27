@@ -9,6 +9,9 @@
     "dev": "QENV=DEV quasar dev",
     "dev:mac": "QENV=DEV quasar dev",
     "dev:win": "cross-env QENV=DEV quasar dev",
+    "dev pwa": "QENV=DEV quasar dev -m pwa",
+    "dev:mac pwa": "QENV=DEV quasar dev -m pwa",
+    "dev:win pwa": "cross-env QENV=DEV quasar dev -m pwa",
     "build": "QENV=DEV quasar build",
     "lint": "eslint 'src/**'",
     "test": "echo \"No test specified\" && exit 0"
@@ -28,7 +31,8 @@
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.0.0",
-    "eslint-webpack-plugin": "^2.4.0"
+    "eslint-webpack-plugin": "^2.4.0",
+    "workbox-webpack-plugin": "^6.4.2"
   },
   "browserslist": [
     "last 10 Chrome versions",
