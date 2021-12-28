@@ -26,11 +26,18 @@ const actions = {
   async registerUser( { commit }, data ) {
     const { firstName, lastName, email, password } = data
 
-    const token = this.$fb.getFCMToken();
 
     this.$fb.registerUser( email, password )
-      .then( ( response ) => this.$fb.addUserData( response.user.uid, firstName, lastName, email, token )
-        .then( () => console.log( "User successfully added" ) ) )
+      .then( ( response ) => {
+        let token = ""
+        
+        this.$fb.getFCMToken().then((res) => {
+          token = res
+        }).finally(() => {
+          this.$fb.addUserData( response.user.uid, firstName, lastName, email, token )
+          .then( () => console.log( "User successfully added" ) )
+        });
+      } )
       .catch( ( error ) => {
         console.log( error )
       } )
