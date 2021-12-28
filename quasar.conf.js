@@ -132,7 +132,7 @@ module.exports = configure(function (ctx) {
 
     // https://v2.quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
-      workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
+      workboxPluginMode: 'InjectManifest', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
 
       // for the custom service worker ONLY (/src-pwa/custom-service-worker.[js|ts])
@@ -143,9 +143,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `Quasar App`,
-        short_name: `Quasar App`,
-        description: `A Quasar Framework app`,
+        name: `Rond point`,
+        short_name: `Rond point`,
+        description: `Ramène toi`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#121212',

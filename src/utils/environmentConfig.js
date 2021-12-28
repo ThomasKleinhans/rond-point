@@ -13,6 +13,8 @@ module.exports = (QENV) => {
       storageBucket: ENV[`${QENV}_STORAGE_BUCKET`],
       messagingSenderId: ENV[`${QENV}_MESSAGING_SENDER_ID`],
       appId: ENV[`${QENV}_APP_ID`]
-    }
+    },
+    CLOUD_MESSAGING_API_KEY: ENV[`${QENV}_CLOUD_MESSAGING_API_KEY`]
+    
   }
 }
