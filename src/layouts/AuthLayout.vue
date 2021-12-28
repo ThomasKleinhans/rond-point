@@ -1,6 +1,6 @@
 <template>
-  <q-layout dark view="lHh Lpr lFf">
-    <q-page-container dark>
+  <q-layout view="lHh Lpr lFf">
+    <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>
@@ -10,6 +10,6 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "MainLayout",
+  name: "AuthLayout",
 });
 </script>
