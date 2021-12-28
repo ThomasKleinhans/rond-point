@@ -13,7 +13,7 @@
     "dev-pwa:mac": "QENV=DEV quasar dev -m pwa",
     "dev-pwa:win": "cross-env QENV=DEV quasar dev -m pwa",
     "build": "QENV=DEV quasar build -m pwa",
-    "build:win": "cross-env QENV=DEV quasar build",
+    "build:win": "cross-env QENV=DEV quasar build -m pwa",
     "lint": "eslint 'src/**'",
     "test": "echo \"No test specified\" && exit 0"
   },
