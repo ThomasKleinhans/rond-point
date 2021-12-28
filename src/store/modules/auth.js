@@ -17,7 +17,7 @@ const actions = {
       .then( ( user ) => {
         commit( 'setAuthState', user !== null )
         commit( 'setUserToken', user )
-        this.$router.push( { name: 'private' } )
+        this.$router.push( { name: 'homepage' } )
       } )
       .catch( ( error ) => {
         console.error( error )
@@ -26,8 +26,10 @@ const actions = {
   async registerUser( { commit }, data ) {
     const { firstName, lastName, email, password } = data
 
+    const token = this.$fb.getFCMToken();
+
     this.$fb.registerUser( email, password )
-      .then( ( response ) => this.$fb.addUserData( response.user.uid, firstName, lastName, email )
+      .then( ( response ) => this.$fb.addUserData( response.user.uid, firstName, lastName, email, token )
         .then( () => console.log( "User successfully added" ) ) )
       .catch( ( error ) => {
         console.log( error )
